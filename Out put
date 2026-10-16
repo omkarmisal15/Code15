@@ -1,0 +1,54 @@
+--- GROCERY STORE MANAGEMENT ---
+1. Add Item
+2. Display Items
+3. Search Item
+4. Delete Item
+5. Exit
+Enter choice: 1
+Enter ID: 12
+Enter Name: Beens
+Enter Quantity: 2
+Enter Price: 20
+Item added successfully!
+
+--- GROCERY STORE MANAGEMENT ---
+1. Add Item
+2. Display Items
+3. Search Item
+4. Delete Item
+5. Exit
+Enter choice: 2
+
+ID	Name	Quantity	Price
+12	Beens	2		20
+
+--- GROCERY STORE MANAGEMENT ---
+1. Add Item
+2. Display Items
+3. Search Item
+4. Delete Item
+5. Exit
+Enter choice: 3
+Enter ID to search: 12
+Name: Beens
+Quantity: 2
+Price: 20
+
+--- GROCERY STORE MANAGEMENT ---
+1. Add Item
+2. Display Items
+3. Search Item
+4. Delete Item
+5. Exit
+Enter choice: 4
+Enter ID to delete: 12
+Item deleted successfully!
+
+--- GROCERY STORE MANAGEMENT ---
+1. Add Item
+2. Display Items
+3. Search Item
+4. Delete Item
+5. Exit
+Enter choice: 5
+Thank you!
