@@ -1,0 +1,118 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct Node {
+    int id, qty;
+    string name;
+    float price;
+    Node* next;
+};
+
+Node* head = nullptr;
+
+void addItem() {
+    Node* n = new Node;
+
+    cout << "Enter ID: ";
+    cin >> n->id;
+    cout << "Enter Name: ";
+    cin >> n->name;
+    cout << "Enter Quantity: ";
+    cin >> n->qty;
+    cout << "Enter Price: ";
+    cin >> n->price;
+
+    n->next = head;
+    head = n;
+    cout << "Item added successfully!\n";
+}
+
+void displayItems() {
+    Node* p = head;
+
+    if (p == nullptr) {
+        cout << "No items available!\n";
+        return;
+    }
+
+    cout << "\nID\tName\tQuantity\tPrice\n";
+    while (p != nullptr) {
+        cout << p->id << "\t" << p->name << "\t"
+             << p->qty << "\t\t" << p->price << "\n";
+        p = p->next;
+    }
+}
+
+void searchItem() {
+    int id;
+    cout << "Enter ID to search: ";
+    cin >> id;
+
+    Node* p = head;
+    while (p != nullptr) {
+        if (p->id == id) {
+            cout << "Name: " << p->name
+                 << "\nQuantity: " << p->qty
+                 << "\nPrice: " << p->price << "\n";
+            return;
+        }
+        p = p->next;
+    }
+    cout << "Item not found!\n";
+}
+
+void deleteItem() {
+    int id;
+    cout << "Enter ID to delete: ";
+    cin >> id;
+
+    Node *p = head, *prev = nullptr;
+
+    while (p != nullptr && p->id != id) {
+        prev = p;
+        p = p->next;
+    }
+
+    if (p == nullptr) {
+        cout << "Item not found!\n";
+        return;
+    }
+
+    if (prev == nullptr)
+        head = p->next;
+    else
+        prev->next = p->next;
+
+    delete p;
+    cout << "Item deleted successfully!\n";
+}
+
+int main() {
+    int choice;
+
+    do {
+        cout << "\n--- GROCERY STORE MANAGEMENT ---\n";
+        cout << "1. Add Item\n2. Display Items\n";
+        cout << "3. Search Item\n4. Delete Item\n5. Exit\n";
+        cout << "Enter choice: ";
+        cin >> choice;
+
+        switch (choice) {
+            case 1: addItem(); break;
+            case 2: displayItems(); break;
+            case 3: searchItem(); break;
+            case 4: deleteItem(); break;
+            case 5: cout << "Thank you!\n"; break;
+            default: cout << "Invalid choice!\n";
+        }
+    } while (choice != 5);
+
+    while (head != nullptr) {
+        Node* p = head;
+        head = head->next;
+        delete p;
+    }
+
+    return 0;
+}
