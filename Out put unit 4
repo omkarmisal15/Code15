@@ -1,0 +1,15 @@
+Enter number of employees: 5
+Enter inorder sequence: D B E A C
+Enter preorder sequence: A B D E C
+
+Reconstructed Organization Chart:
+
+     C
+
+A
+          E
+     B
+          D
+
+Inorder verification: D B E A C
+Preorder verification: A B D E C
