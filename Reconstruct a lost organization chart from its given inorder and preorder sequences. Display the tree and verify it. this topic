@@ -1,0 +1,102 @@
+
+#include <iostream>
+using namespace std;
+
+struct Node {
+    char data;
+    Node *left, *right;
+
+    Node(char value) {
+        data = value;
+        left = right = NULL;
+    }
+};
+
+int search(char inorder[], int start, int end, char value) {
+    for (int i = start; i <= end; i++)
+        if (inorder[i] == value)
+            return i;
+    return -1;
+}
+
+Node* buildTree(char inorder[], char preorder[],
+                int start, int end, int &index) {
+    if (start > end)
+        return NULL;
+
+    char value = preorder[index++];
+    Node* root = new Node(value);
+
+    if (start == end)
+        return root;
+
+    int pos = search(inorder, start, end, value);
+
+    root->left = buildTree(inorder, preorder,
+                           start, pos - 1, index);
+    root->right = buildTree(inorder, preorder,
+                            pos + 1, end, index);
+
+    return root;
+}
+
+void displayTree(Node* root, int space = 0) {
+    if (root == NULL)
+        return;
+
+    space += 5;
+    displayTree(root->right, space);
+
+    cout << endl;
+    for (int i = 5; i < space; i++)
+        cout << " ";
+    cout << root->data << "\n";
+
+    displayTree(root->left, space);
+}
+
+void inorderTraversal(Node* root) {
+    if (root == NULL) return;
+    inorderTraversal(root->left);
+    cout << root->data << " ";
+    inorderTraversal(root->right);
+}
+
+void preorderTraversal(Node* root) {
+    if (root == NULL) return;
+    cout << root->data << " ";
+    preorderTraversal(root->left);
+    preorderTraversal(root->right);
+}
+
+int main() {
+    int n;
+    cout << "Enter number of employees: ";
+    cin >> n;
+
+    char inorder[100], preorder[100];
+
+    cout << "Enter inorder sequence: ";
+    for (int i = 0; i < n; i++)
+        cin >> inorder[i];
+
+    cout << "Enter preorder sequence: ";
+    for (int i = 0; i < n; i++)
+        cin >> preorder[i];
+
+    int index = 0;
+    Node* root = buildTree(inorder, preorder,
+                           0, n - 1, index);
+
+    cout << "\nReconstructed Organization Chart:\n";
+    displayTree(root);
+
+    cout << "\nInorder verification: ";
+    inorderTraversal(root);
+
+    cout << "\nPreorder verification: ";
+    preorderTraversal(root);
+
+    cout << "\n";
+    return 0;
+}
