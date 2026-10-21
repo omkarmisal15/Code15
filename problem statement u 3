@@ -1,0 +1,7 @@
+Problem Statement 
+ A grocery store needs an efficient and organized system to maintain records of its products, including item ID, name, quantity, and price.
+ Managing these records manually can be time-consuming and may lead to difficulties when adding new products, searching for existing items, or removing products from the inventory.
+ Therefore, a computerized system is required to manage grocery items effectively and simplify the process of maintaining product information.
+The Grocery Store Management System using Singly Linked List is developed in C++ to overcome these difficulties by storing product details in dynamically allocated nodes connected through pointers.
+The system provides a menu-driven interface that allows users to add new items, display all available items, search for a product using its ID, and delete an item from the inventory.
+By using a singly linked list, the system supports dynamic memory allocation and efficient insertion and deletion of nodes, making inventory management more flexible and easier to handle.
