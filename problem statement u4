@@ -1,0 +1,11 @@
+Problem Statement: 
+An organization chart has been lost, and only its in order and preorder traversal sequences are available.
+Write a C++ program to reconstruct the original binary tree representing the organization chart using the given traversal sequences. 
+Display the reconstructed tree in a clear format and verify its correctness by performing in order and preorder traversals on the constructed tree and comparing them with the given sequences.
+Objectives: 
+-  To write a C++ program to reconstruct a binary tree representing an organization chart using the given in order and preorder traversal sequences.
+-  To display the reconstructed tree in a clear and understandable format.
+- To verify the correctness of the tree by comparing its in order and preorder traversals with the given sequences.
+-  To understand the concepts of binary trees and different tree traversal techniques.
+- To use recursion to construct the original tree from the given traversal sequences.
+- To understand the practical application of data structures in representing organizational hierarchies.
